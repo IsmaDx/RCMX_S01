@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ShoukoDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Img">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fName" Type="varchar" MaxLength="50" />
+    <Property Name="img64" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="TransactSessionId">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Code" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityContainer Name="ShoukoDBModelStoreContainer">
+    <EntitySet Name="Img" EntityType="Self.Img" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TransactSessionId" EntityType="Self.TransactSessionId" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

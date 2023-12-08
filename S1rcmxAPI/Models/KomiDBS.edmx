@@ -1,0 +1,285 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ShoukoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Cliento">
+          <Key>
+            <PropertyRef Name="id_cli" />
+          </Key>
+          <Property Name="id_cli" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RFC" Type="varchar" MaxLength="13" Nullable="false" />
+          <Property Name="NomCli" Type="varchar" MaxLength="100" />
+          <Property Name="CveRegimen" Type="varchar" MaxLength="3" />
+          <Property Name="CalCli" Type="varchar" MaxLength="20" />
+          <Property Name="NinCli" Type="varchar" MaxLength="5" />
+          <Property Name="NexCli" Type="varchar" MaxLength="5" />
+          <Property Name="ColCli" Type="varchar" MaxLength="20" />
+          <Property Name="EstCli" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="CodCli" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="CveUsoCFDICli" Type="varchar" MaxLength="4" />
+          <Property Name="FechaRegistro" Type="varchar" MaxLength="11" />
+          <Property Name="Saldo" Type="int" />
+          <Property Name="Correo" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="ClientoUsuario">
+          <Key>
+            <PropertyRef Name="id_usr" />
+          </Key>
+          <Property Name="id_usr" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="usrRFC" Type="varchar" MaxLength="13" Nullable="false" />
+          <Property Name="usrPSW" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="FechaAlta" Type="date" />
+        </EntityType>
+        <EntityType Name="Img">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fName" Type="varchar" MaxLength="50" />
+          <Property Name="img64" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Logger">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UUID" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="FecOp" Type="date" />
+          <Property Name="SerFol" Type="varchar" MaxLength="10" />
+          <Property Name="NumFol" Type="int" />
+        </EntityType>
+        <EntityType Name="PswConfirma">
+          <Key>
+            <PropertyRef Name="id_confirma" />
+          </Key>
+          <Property Name="id_confirma" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="confirma" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TransactSessionId">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Code" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Function Name="RegAccess" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="user" Type="nvarchar" Mode="In" />
+          <Parameter Name="pass" Type="nvarchar" Mode="In" />
+          <Parameter Name="FecReg" Type="date" Mode="In" />
+        </Function>
+        <Function Name="RegNewCliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="p_Rfc" Type="varchar" Mode="In" />
+          <Parameter Name="p_NomCli" Type="varchar" Mode="In" />
+          <Parameter Name="p_CveRegimen" Type="varchar" Mode="In" />
+          <Parameter Name="p_CalCli" Type="varchar" Mode="In" />
+          <Parameter Name="p_NinCli" Type="varchar" Mode="In" />
+          <Parameter Name="p_NexCli" Type="varchar" Mode="In" />
+          <Parameter Name="p_ColCli" Type="varchar" Mode="In" />
+          <Parameter Name="p_EstCli" Type="varchar" Mode="In" />
+          <Parameter Name="p_CodCli" Type="varchar" Mode="In" />
+          <Parameter Name="p_CveUsoCFDICli" Type="varchar" Mode="In" />
+          <Parameter Name="p_FechaRegistro" Type="varchar" Mode="In" />
+          <Parameter Name="p_Saldo" Type="int" Mode="In" />
+          <Parameter Name="p_Correo" Type="varchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="ShoukoModelStoreContainer">
+          <EntitySet Name="Cliento" EntityType="Self.Cliento" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ClientoUsuario" EntityType="Self.ClientoUsuario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Img" EntityType="Self.Img" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Logger" EntityType="Self.Logger" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PswConfirma" EntityType="Self.PswConfirma" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TransactSessionId" EntityType="Self.TransactSessionId" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ShoukoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="TransactSessionId">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="ShoukoEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="TransactSessionId" EntityType="Self.TransactSessionId" />
+          <EntitySet Name="Img" EntityType="ShoukoModel.Img" />
+          <EntitySet Name="Logger" EntityType="ShoukoModel.Logger" />
+          <EntitySet Name="PswConfirma" EntityType="ShoukoModel.PswConfirma" />
+          <EntitySet Name="Cliento" EntityType="ShoukoModel.Cliento" />
+          <EntitySet Name="ClientoUsuario" EntityType="ShoukoModel.ClientoUsuario" />
+          <FunctionImport Name="RegAccess">
+            <Parameter Name="user" Mode="In" Type="String" />
+            <Parameter Name="pass" Mode="In" Type="String" />
+            <Parameter Name="FecReg" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="RegNewCliente">
+            <Parameter Name="p_Rfc" Mode="In" Type="String" />
+            <Parameter Name="p_NomCli" Mode="In" Type="String" />
+            <Parameter Name="p_CveRegimen" Mode="In" Type="String" />
+            <Parameter Name="p_CalCli" Mode="In" Type="String" />
+            <Parameter Name="p_NinCli" Mode="In" Type="String" />
+            <Parameter Name="p_NexCli" Mode="In" Type="String" />
+            <Parameter Name="p_ColCli" Mode="In" Type="String" />
+            <Parameter Name="p_EstCli" Mode="In" Type="String" />
+            <Parameter Name="p_CodCli" Mode="In" Type="String" />
+            <Parameter Name="p_CveUsoCFDICli" Mode="In" Type="String" />
+            <Parameter Name="p_FechaRegistro" Mode="In" Type="String" />
+            <Parameter Name="p_Saldo" Mode="In" Type="Int32" />
+            <Parameter Name="p_Correo" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <EntityType Name="Img">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="img64" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Logger">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UUID" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="FecOp" Type="DateTime" Precision="0" />
+          <Property Name="SerFol" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="NumFol" Type="Int32" />
+        </EntityType>
+        <EntityType Name="PswConfirma">
+          <Key>
+            <PropertyRef Name="id_confirma" />
+          </Key>
+          <Property Name="id_confirma" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="confirma" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Cliento">
+          <Key>
+            <PropertyRef Name="id_cli" />
+          </Key>
+          <Property Name="id_cli" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RFC" Type="String" Nullable="false" MaxLength="13" FixedLength="false" Unicode="false" />
+          <Property Name="NomCli" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CveRegimen" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="CalCli" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="NinCli" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="NexCli" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="ColCli" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="EstCli" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="CodCli" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="CveUsoCFDICli" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="FechaRegistro" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="Saldo" Type="Int32" />
+          <Property Name="Correo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ClientoUsuario">
+          <Key>
+            <PropertyRef Name="id_usr" />
+          </Key>
+          <Property Name="id_usr" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="usrRFC" Type="String" Nullable="false" MaxLength="13" FixedLength="false" Unicode="false" />
+          <Property Name="usrPSW" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="FechaAlta" Type="DateTime" Precision="0" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ShoukoModelStoreContainer" CdmEntityContainer="ShoukoEntities">
+          <EntitySetMapping Name="TransactSessionId">
+            <EntityTypeMapping TypeName="ShoukoModel.TransactSessionId">
+              <MappingFragment StoreEntitySet="TransactSessionId">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Img">
+            <EntityTypeMapping TypeName="ShoukoModel.Img">
+              <MappingFragment StoreEntitySet="Img">
+                <ScalarProperty Name="img64" ColumnName="img64" />
+                <ScalarProperty Name="fName" ColumnName="fName" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Logger">
+            <EntityTypeMapping TypeName="ShoukoModel.Logger">
+              <MappingFragment StoreEntitySet="Logger">
+                <ScalarProperty Name="NumFol" ColumnName="NumFol" />
+                <ScalarProperty Name="SerFol" ColumnName="SerFol" />
+                <ScalarProperty Name="FecOp" ColumnName="FecOp" />
+                <ScalarProperty Name="UUID" ColumnName="UUID" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PswConfirma">
+            <EntityTypeMapping TypeName="ShoukoModel.PswConfirma">
+              <MappingFragment StoreEntitySet="PswConfirma">
+                <ScalarProperty Name="confirma" ColumnName="confirma" />
+                <ScalarProperty Name="id_confirma" ColumnName="id_confirma" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cliento">
+            <EntityTypeMapping TypeName="ShoukoModel.Cliento">
+              <MappingFragment StoreEntitySet="Cliento">
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Saldo" ColumnName="Saldo" />
+                <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+                <ScalarProperty Name="CveUsoCFDICli" ColumnName="CveUsoCFDICli" />
+                <ScalarProperty Name="CodCli" ColumnName="CodCli" />
+                <ScalarProperty Name="EstCli" ColumnName="EstCli" />
+                <ScalarProperty Name="ColCli" ColumnName="ColCli" />
+                <ScalarProperty Name="NexCli" ColumnName="NexCli" />
+                <ScalarProperty Name="NinCli" ColumnName="NinCli" />
+                <ScalarProperty Name="CalCli" ColumnName="CalCli" />
+                <ScalarProperty Name="CveRegimen" ColumnName="CveRegimen" />
+                <ScalarProperty Name="NomCli" ColumnName="NomCli" />
+                <ScalarProperty Name="RFC" ColumnName="RFC" />
+                <ScalarProperty Name="id_cli" ColumnName="id_cli" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ClientoUsuario">
+            <EntityTypeMapping TypeName="ShoukoModel.ClientoUsuario">
+              <MappingFragment StoreEntitySet="ClientoUsuario">
+                <ScalarProperty Name="FechaAlta" ColumnName="FechaAlta" />
+                <ScalarProperty Name="usrPSW" ColumnName="usrPSW" />
+                <ScalarProperty Name="usrRFC" ColumnName="usrRFC" />
+                <ScalarProperty Name="id_usr" ColumnName="id_usr" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="RegAccess" FunctionName="ShoukoModel.Store.RegAccess" />
+          <FunctionImportMapping FunctionImportName="RegNewCliente" FunctionName="ShoukoModel.Store.RegNewCliente" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

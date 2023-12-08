@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ShoukoDBModelStoreContainer" CdmEntityContainer="ShoukoDBEntities">
+    <EntitySetMapping Name="Img">
+      <EntityTypeMapping TypeName="ShoukoDBModel.Img">
+        <MappingFragment StoreEntitySet="Img">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="fName" ColumnName="fName" />
+          <ScalarProperty Name="img64" ColumnName="img64" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TransactSessionId">
+      <EntityTypeMapping TypeName="ShoukoDBModel.TransactSessionId">
+        <MappingFragment StoreEntitySet="TransactSessionId">
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d45340e2303c463faa088ac6570caa03" Name="Diagram1">
+        <EntityTypeShape EntityType="ShoukoModel.TransactSessionId" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShoukoModel.Img" Width="1.5" PointX="3.75" PointY="0.75" />
+        <EntityTypeShape EntityType="ShoukoModel.Logger" Width="1.5" PointX="8.375" PointY="1.25" />
+        <EntityTypeShape EntityType="ShoukoModel.PswConfirma" Width="1.5" PointX="6.25" PointY="1" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

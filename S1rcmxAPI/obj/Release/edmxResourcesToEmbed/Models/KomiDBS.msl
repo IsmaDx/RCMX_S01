@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ShoukoModelStoreContainer" CdmEntityContainer="ShoukoEntities">
+    <EntitySetMapping Name="TransactSessionId">
+      <EntityTypeMapping TypeName="ShoukoModel.TransactSessionId">
+        <MappingFragment StoreEntitySet="TransactSessionId">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Img">
+      <EntityTypeMapping TypeName="ShoukoModel.Img">
+        <MappingFragment StoreEntitySet="Img">
+          <ScalarProperty Name="img64" ColumnName="img64" />
+          <ScalarProperty Name="fName" ColumnName="fName" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Logger">
+      <EntityTypeMapping TypeName="ShoukoModel.Logger">
+        <MappingFragment StoreEntitySet="Logger">
+          <ScalarProperty Name="NumFol" ColumnName="NumFol" />
+          <ScalarProperty Name="SerFol" ColumnName="SerFol" />
+          <ScalarProperty Name="FecOp" ColumnName="FecOp" />
+          <ScalarProperty Name="UUID" ColumnName="UUID" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PswConfirma">
+      <EntityTypeMapping TypeName="ShoukoModel.PswConfirma">
+        <MappingFragment StoreEntitySet="PswConfirma">
+          <ScalarProperty Name="confirma" ColumnName="confirma" />
+          <ScalarProperty Name="id_confirma" ColumnName="id_confirma" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

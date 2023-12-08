@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ShoukoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="TransactSessionId">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityContainer Name="ShoukoEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="TransactSessionId" EntityType="Self.TransactSessionId" />
+    <EntitySet Name="Img" EntityType="ShoukoModel.Img" />
+    <EntitySet Name="Logger" EntityType="ShoukoModel.Logger" />
+    <EntitySet Name="PswConfirma" EntityType="ShoukoModel.PswConfirma" />
+  </EntityContainer>
+  <EntityType Name="Img">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="fName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="img64" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Logger">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UUID" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+    <Property Name="FecOp" Type="DateTime" Precision="0" />
+    <Property Name="SerFol" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="NumFol" Type="Int32" />
+  </EntityType>
+  <EntityType Name="PswConfirma">
+    <Key>
+      <PropertyRef Name="id_confirma" />
+    </Key>
+    <Property Name="id_confirma" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="confirma" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+  </EntityType>
+</Schema>

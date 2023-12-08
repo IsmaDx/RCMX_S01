@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ShoukoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Img">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fName" Type="varchar" MaxLength="50" />
+    <Property Name="img64" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Logger">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UUID" Type="varchar" MaxLength="36" Nullable="false" />
+    <Property Name="FecOp" Type="date" />
+    <Property Name="SerFol" Type="varchar" MaxLength="10" />
+    <Property Name="NumFol" Type="int" />
+  </EntityType>
+  <EntityType Name="PswConfirma">
+    <Key>
+      <PropertyRef Name="id_confirma" />
+    </Key>
+    <Property Name="id_confirma" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="confirma" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TransactSessionId">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Code" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityContainer Name="ShoukoModelStoreContainer">
+    <EntitySet Name="Img" EntityType="Self.Img" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Logger" EntityType="Self.Logger" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PswConfirma" EntityType="Self.PswConfirma" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TransactSessionId" EntityType="Self.TransactSessionId" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
